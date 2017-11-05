@@ -1,3 +1,8 @@
 body {
 	background-color: lightblue;
 }
+.location,
+.temperature,
+.btn {
+	font-weight: 700;
+}
