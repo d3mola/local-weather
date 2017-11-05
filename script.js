@@ -13,12 +13,14 @@ $(document).ready(function() {
 
 			// get JSON data and display
 			$.getJSON(url, (data) => {
-				let location = "<p>" + data.name + "</p>";
+				let location = "<p>" + data.name+ ", " + data.sys.country + "</p>";
 				let temperature = "<p>" + data.main.temp + " F" + "</p>";
+				temperature += "<br><p>" + data.weather[0].description + "</p>";
 
 				// manipulate DOM to display JSON data
 				$(".location").html(location);
 				$(".temperature").html(temperature);
+				$("#data").html(JSON.stringify(data));
 			});
 	  });
 	}
