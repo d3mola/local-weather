@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Local Weather</title>
 	<!-- Importing fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Quicksand:300,700" rel="stylesheet">
+   <link href='https://fonts.googleapis.com/css?family=Merienda' rel='stylesheet'>
 	<!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Custom CSS -->
@@ -18,14 +18,16 @@
 		<h1>Weatherify</h1>
 		<h3>Your favourite local weather wizard</h3>
 		</div>
-		<div class="jumbotron location">
-			City, Country
+		<div class="jumbotron data-box">
+			<div class="location">
+			</div>
+			<div class="temperature">
+				<span id="temp"></span>
+				<span id="sky"></span>
+				<span class="img img-responsive img-center" id="icon"></span>
+			</div>
 		</div>
-		<div class="jumbotron temperature">
-			<span id="temp"></span>
-			<pspan id="sky"></span>
-		</div>
-		<button class="btn" id="button">
+		<button class="btn btn-default" id="button">
 			See temperature in Farenheit
 		</button>
 		<!--
