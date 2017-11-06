@@ -32,14 +32,16 @@ $(document).ready(function() {
 				// convert temp when button is clicked
 				$("#button").on("click", () => {
 
-					// toggle tmeperature
+					// toggle temperature
 					if (clicked) {
 						let farenheitTemp = tempConverter.toFarenheit(data.main.temp);
 						farenheitTemp = "<p>" + farenheitTemp + " F" + "</p>";
 						$("#temp").html(farenheitTemp);
+						$("#button").text("See temperature in Celcius");
 						clicked = false;
 					} else {
 						$("#temp").html(temperature);
+						$("#button").text("See temperature in Farenheit");
 						clicked = true;
 					}// end of toggle
 				});// end of btn click
