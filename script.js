@@ -19,11 +19,13 @@ $(document).ready(function() {
 				// let ele = data.main.temp;
 				let temperature = "<p>" + data.main.temp + unit + "</p>";// data.main.temp changed to ele
 				let weather = "<p>" + data.weather[0].description + "</p>";
-
+				let icon = "<img src=" + data.weather[0].icon + "alt='Weather Icon'>";
+				// class='img img-responsive img-center' 
 				// manipulate DOM to display JSON data
 				$(".location").html(location); // display location
-				$("#temp").html(temperature); // display temperature and sky description
-				$("#sky").html(weather);
+				$("#temp").html(temperature); // display temperature
+				$("#sky").html(weather);// sky description
+				$("#icon").html(icon); // weather icon
 				//$("#data").html(JSON.stringify(data)); // display full json data
 
 				// click status of the button to help with toggle
