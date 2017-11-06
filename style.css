@@ -1,8 +1,24 @@
 body {
 	background-color: lightblue;
+	font-family: 'Merienda';font-size: 26px;
+	color: blue;
+	min-height: 1000px;
 }
 .location,
 .temperature,
 .btn {
-	font-weight: 700;
+	font-weight: 800;
+}
+img {
+	height: 200px;
+}
+.data-box {
+	margin-top: 70px;
+	min-height: 395px;
+}
+h3 {
+	margin-top: 40px;
+}
+button#button {
+	color: blue;
 }
