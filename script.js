@@ -20,10 +20,20 @@ $(document).ready(function() {
 				// manipulate DOM to display JSON data
 				$(".location").html(location);
 				$(".temperature").html(temperature);
-				$("#data").html(JSON.stringify(data));
+				//$("#data").html(JSON.stringify(data));
 			});
 	  });
 	}
 
 
 });
+
+// celcius to farenheit converter
+//const celcius = farenTemp => (farenTemp - 32) / 1.8;
+
+const tempConverter = {
+	celcius: farenTemp => (farenTemp - 32) / 1.8,
+	farenheit: celsTemp => (celsTemp * 1.8) + 32
+}
+console.log(`celcius: ${tempConverter.celcius(68)}`);
+console.log(`farenheit: ${tempConverter.farenheit(20)}`)
