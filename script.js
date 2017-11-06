@@ -16,7 +16,8 @@ $(document).ready(function() {
 			// get JSON data and display
 			$.getJSON(url, (data) => {
 				let location = "<p>" + data.name+ ", " + data.sys.country + "</p>";
-				let temperature = "<p>" + data.main.temp + unit + "</p>";
+				// let ele = data.main.temp;
+				let temperature = "<p>" + data.main.temp + unit + "</p>";// data.main.temp changed to ele
 				let weather = "<p>" + data.weather[0].description + "</p>";
 
 				// manipulate DOM to display JSON data
@@ -25,33 +26,25 @@ $(document).ready(function() {
 				$("#sky").html(weather);
 				//$("#data").html(JSON.stringify(data)); // display full json data
 
+				// click status of the button to help with toggle
 				let clicked = true;
+
 				// convert temp when button is clicked
 				$("#button").on("click", () => {
-					// once button is clicked, grab temperature and modify
+
+					// toggle tmeperature
 					if (clicked) {
-						$("body").css("background-color", "red");
+						let farenheitTemp = tempConverter.toFarenheit(data.main.temp);
+						farenheitTemp = "<p>" + farenheitTemp + " F" + "</p>";
+						$("#temp").html(farenheitTemp);
 						clicked = false;
 					} else {
-						$("body").css("background-color", "green");
+						$("#temp").html(temperature);
 						clicked = true;
-					}
-
-					//clicked = false;
-					/*
-					let farenheitTemp = tempConverter.toFarenheit(data.main.temp);
-					farenheitTemp = "<p>" + farenheitTemp + " F" + "</p>";
-					$("#temp").html(farenheitTemp);
-					*/
-
-					// far to cel
-					// let celciusTemp = tempConverter.toCelcius(data.main.temp);
-					// $(".temperature").html(JSON.stringify(celciusTemp) + " C");
+					}// end of toggle
 				});// end of btn click
 			});// end of getJSON from API
-
-
-	  });// end of getCurrentPosition function
+		});// end of getCurrentPosition function
 	}// end of if navigator
 
 });// end of jquery
@@ -61,5 +54,3 @@ const tempConverter = {
 	toCelcius: farenTemp => (farenTemp - 32) / 1.8,
 	toFarenheit: celsTemp => (celsTemp * 1.8) + 32
 }
-// console.log(`celcius: ${tempConverter.toCelcius(26.63)}`);
-// console.log(`farenheit: ${tempConverter.toFarenheit(26.63)}`)
